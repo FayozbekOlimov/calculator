@@ -30,7 +30,8 @@
     --btn-wrapper-color: #67c1eb;
 }
 
-button, input {
+button,
+input {
     border: none;
     outline: none;
 }
@@ -60,6 +61,9 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 1.4rem;
+    background-color: var(--btn-wrapper-color);
+    border-radius: .5rem;
 }
 
 .calc-top {
@@ -68,60 +72,57 @@ body {
     justify-content: space-between;
     align-items: center;
     color: var(--text-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.4rem;
 }
 
-.title {
-    text-transform: lowercase;
+.title, .calc-theme p {
     font-weight: 600;
+    font-size: .7rem;
+    letter-spacing: 1px;
 }
 
 .calc-theme {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 90px;
-}
-.calc-theme p {
-    font-size: .7rem;
-    font-weight: 600;
+    width: 80px;
 }
 
 .checkbox {
-    width: 40px;
-    height: 20px;
+    width: 34px;
+    height: 16px;
     border-radius: 10px;
     cursor: pointer;
     position: relative;
-    background-color: var(--btn-wrapper-color);
+    background-color: var(--body-color);
 }
 
 .checkbox span {
     position: absolute;
     top: 50%;
-    left: 8%;
-    width: 14px;
-    height: 14px;
+    left: 12%;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     transform: translateY(-50%);
     background-color: var(--check-btn-color);
     transition: .3s ease-in;
 }
 
-#check:checked + span {
-    left: 58%;
+#theme-switcher:checked+span {
+    left: 62%;
 }
 
 .calc-input {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     width: 100%;
 }
 
 .calc-input #input {
     width: 100%;
-    height: 5.5rem;
+    height: 6rem;
     padding: 0 1rem;
-    font-size: 3rem;
+    font-size: 2.8rem;
     border-radius: .5rem;
     font-weight: 600;
     text-align: right;
@@ -133,6 +134,8 @@ body {
     align-items: flex-end;
     word-wrap: break-word;
     word-break: break-all;
+    user-select: none;
+    letter-spacing: 1px;
 }
 
 .calc-input #input::placeholder {
@@ -141,9 +144,6 @@ body {
 
 .calc-buttons {
     width: 100%;
-    padding: 1.5rem;
-    background-color: var(--btn-wrapper-color);
-    border-radius: .5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -152,7 +152,7 @@ body {
 .btn {
     max-width: calc(25% - 10px);
     width: 100%;
-    font-size: 2rem;
+    font-size: 1.7rem;
     margin-bottom: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -165,59 +165,82 @@ body {
     user-select: none;
 }
 
-.equal {
-    color: #EAE3DB;
-    background-color: var(--check-btn-color);
-    border-bottom: 4px solid var(--check-btn-color-dark);
+.btn:nth-last-child(1),
+.btn:nth-last-child(2),
+.btn:nth-last-child(3) {
+    margin-bottom: 0;
 }
 
 .btn:active {
     border-bottom-color: transparent;
 }
 
-.del, .reset {
+.equal {
+    color: #EAE3DB;
+    background-color: var(--check-btn-color);
+    border-bottom: 4px solid var(--check-btn-color-dark);
+    max-width: calc(50% - 7.5px);
+}
+
+.plus-minus {
+    font-size: 1.4rem;
+}
+
+.del,
+.clear {
     font-size: 1.2rem;
     background-color: var(--btn-color-2);
     border-bottom-color: var(--btn-color-2-alt);
     color: #EAE3DB;
 }
 
-.btn-2x {
-    margin-bottom: 0;
-    max-width: calc(50% - 7.5px);
-}
-
 @media (max-width: 380px) {
     .calc {
         max-width: 18rem;
+        padding: 1rem;
     }
-    .title {
-        font-size: 1rem;
-    }
+
     .calc-theme {
-        width: 80px;
+        width: 58px;
     }
+
+    .title, .calc-theme p {
+        font-size: .5rem;
+    }
+
     .checkbox {
-        width: 30px;
-        height: 14px;
+        width: 22px;
+        height: 12px;
+        border-radius: 6px;
     }
+
     .checkbox span {
-        width: 10px;
-        height: 10px;
+        width: 7px;
+        height: 7px;
     }
+
+    #theme-switcher:checked+span {
+        left: 56%;
+    }
+
+    .calc-input {
+        margin-bottom: 1rem;
+    }
+
     .calc-input #input {
         font-size: 1.8rem;
         padding: 0 .6rem;
-        height: 3.4rem;
+        height: 4rem;
     }
-    .calc-buttons {
-        padding: 1rem;
-    }
+
     .btn {
         font-size: 1.2rem;
         border-bottom-width: 3px;
     }
-    .del, .reset {
+
+    .del,
+    .plus-minus,
+    .clear {
         font-size: .9rem;
     }
 }
