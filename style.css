@@ -75,7 +75,8 @@ body {
     margin-bottom: 0.4rem;
 }
 
-.title, .calc-theme p {
+.title,
+.calc-theme p {
     font-weight: 600;
     font-size: .7rem;
     letter-spacing: 1px;
@@ -204,7 +205,8 @@ body {
         width: 58px;
     }
 
-    .title, .calc-theme p {
+    .title,
+    .calc-theme p {
         font-size: .5rem;
     }
 
